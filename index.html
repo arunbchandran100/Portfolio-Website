@@ -13,9 +13,15 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- custom css file -->
     <link rel="stylesheet" href="css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
 
     <!-- google font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -833,7 +839,7 @@
         
         <div class="col-md-5 col-10 mt-3 mt-md-0" data-aos="slide-left">
           <div class="get-in-touch-form">
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <input
                 type="text"
                 class="form-control"
@@ -864,10 +870,41 @@
                 placeholder="Message"
                 rows="5"
               ></textarea>
-            </div>
-            <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
+            </div> -->
+
+            <form id="form" methd="POST" >
+              <label for="fname">Name</label>
+              <input class="form-control" type="text" id="fname" name="name" placeholder="Name" required>
+              <label for="lname">Email</label>
+              <input class="form-control" type="text" id="lname" name="email" placeholder="Email" required>
+
+              <label for="subject">Message</label>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                name="message"
+                placeholder="Message"
+                rows="5"
+                required
+              ></textarea>
+              <button id="submit-button" class="c-btn h-btn mt-3 py-3 px-5 rounded-pill" type="submit" value="Submit">Submit</button>
+            </form>
+                <div
+      id="message"
+      style="
+        display: none;
+        margin: 20px;
+        font-weight: bold;
+        color: green;
+        padding: 8px;
+        background-color: beige;
+        border-radius: 4px;
+        border-color: aquamarine;
+      "
+    ></div>
+            <!-- <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
               Submit
-            </button>
+            </button> -->
           </div>
         </div>
       </div>
@@ -937,6 +974,67 @@
     </script>
     <!-- custom js file linking -->
     <script src="js/script.js"></script>
+
+    <script>
+      document.getElementById("form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent the default form submission
+        document.getElementById("message").textContent = "Submitting..";
+        document.getElementById("message").style.display = "block";
+        document.getElementById("submit-button").disabled = true;
+
+        // Collect the form data
+        var formData = new FormData(this);
+        var keyValuePairs = [];
+        for (var pair of formData.entries()) {
+          keyValuePairs.push(pair[0] + "=" + pair[1]);
+        }
+
+        var formDataString = keyValuePairs.join("&");
+
+        // Send a POST request to your Google Apps Script
+        fetch(
+          "https://script.google.com/macros/s/AKfycbyrFyLxbl-trEA9-ohnMRoQRUByi-3HZ1NBeKQ28NMEzh5XZMqr4v-FuTd8xS7cZayx/exec",
+          {
+            redirect: "follow",
+            method: "POST",
+            body: formDataString,
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8",
+            },
+          }
+        )
+          .then(function (response) {
+            // Check if the request was successful
+            if (response) {
+              return response; // Assuming your script returns JSON response
+            } else {
+              throw new Error("Failed to submit the form.");
+            }
+          })
+          .then(function (data) {
+            // Display a success message
+            document.getElementById("message").textContent =
+              "Data submitted successfully!";
+            document.getElementById("message").style.display = "block";
+            document.getElementById("message").style.backgroundColor = "green";
+            document.getElementById("message").style.color = "beige";
+            document.getElementById("submit-button").disabled = false;
+            document.getElementById("form").reset();
+
+            setTimeout(function () {
+              document.getElementById("message").textContent = "";
+              document.getElementById("message").style.display = "none";
+            }, 2600);
+          })
+          .catch(function (error) {
+            // Handle errors, you can display an error message here
+            console.error(error);
+            document.getElementById("message").textContent =
+              "An error occurred while submitting the form.";
+            document.getElementById("message").style.display = "block";
+          });
+      });
+    </script>
     
   </body>
 </html>
