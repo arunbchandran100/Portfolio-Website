@@ -351,6 +351,10 @@ body{
     width: 80%;
 }
 
+.text-muted{
+    font-family:serif;
+    text-transform:none;
+}
 
 
 /* footer section starts */
