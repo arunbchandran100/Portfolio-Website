@@ -307,7 +307,8 @@ body{
 }
 /* contact section starts */
 .contact{
-    background-color: #f3f3f3;
+    /* background-color: #f3f3f3; */
+    background-color: rgb(234, 234, 249);
 }
 .contact-details i{
     font-size: 1.5rem;
@@ -325,6 +326,32 @@ body{
     padding: 10px 10px;
     width: 80%;
 }
+
+/* -----------------Get in touch------------------ */
+
+
+.get-in-touch{
+    background-color: #f3f3f3;
+    /* background-color: rgb(234, 234, 249); */
+}
+.get-in-touch-details i{
+    font-size: 1.5rem;
+    color: #fca61f;
+}
+.get-in-touch-details p{
+    font-size: 1.2rem;
+    margin-left: 1rem;
+}
+.get-in-touch-form .form-control:focus{
+    box-shadow: none;
+    border: 1px solid #fca61f;
+}
+.get-in-touch-form .form-control{
+    padding: 10px 10px;
+    width: 80%;
+}
+
+
 
 /* footer section starts */
 footer{
