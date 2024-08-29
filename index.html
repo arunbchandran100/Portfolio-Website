@@ -390,9 +390,9 @@
 
             <form id="form" methd="POST" >
               <label for="fname">Name</label>
-              <input class="form-control" type="text" id="fname" name="name" placeholder="Name" required>
+              <input class="form-control" type="text" id="name" name="name" placeholder="Name" required >
               <label for="lname">Email</label>
-              <input class="form-control" type="text" id="lname" name="email" placeholder="Email" required>
+              <input class="form-control" type="email" id="email" name="email" placeholder="Email" required>
 
               <label for="subject">Message</label>
               <textarea
@@ -402,10 +402,11 @@
                 placeholder="Message"
                 rows="5"
                 required
+                
               ></textarea>
               <button id="submit-button" class="c-btn h-btn mt-3 py-3 px-5 rounded-pill" type="submit" value="Submit">Submit</button>
-            </form>
-                <div
+              
+              <div
       id="message"
       style="
         display: none;
@@ -418,6 +419,10 @@
         border-color: aquamarine;
       "
     ></div>
+            
+            
+            </form>
+                
             <!-- <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
               Submit
             </button> -->

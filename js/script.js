@@ -142,3 +142,45 @@ mybutton.addEventListener("click",function(){
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 });
+
+
+
+// -------------------------------Form Validation-------------------------------------
+
+document.getElementById("form").addEventListener("submit", function (event) {
+  // Retrieve form field values
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+
+  let isValid = true; // Flag to check if all validations pass
+
+  // Validate Name
+  if (name === "") {
+    isValid = false;
+    alert("Blank Name");
+  } else if (!isNaN(name.charAt(0))) {
+    isValid = false;
+    alert("Name shouldn't start with a number.");
+  }
+
+  // Validate Email
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    isValid = false;
+    alert("Invalid email address.");
+  }
+
+  // Validate Message
+  let message = document
+    .getElementById("exampleFormControlTextarea1")
+    .value.trim();
+  if (message === "") {
+    isValid = false;
+    alert("Message cannot be empty.");
+  }
+
+  // Prevent form submission if validation fails
+  if (!isValid) {
+    event.preventDefault(); // Stops the form from submitting
+  }
+});
