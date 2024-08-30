@@ -148,39 +148,35 @@ mybutton.addEventListener("click",function(){
 // -------------------------------Form Validation-------------------------------------
 
 document.getElementById("form").addEventListener("submit", function (event) {
-  // Retrieve form field values
+  
   let name = document.getElementById("name").value.trim();
   let email = document.getElementById("email").value.trim();
+  
 
-  let isValid = true; // Flag to check if all validations pass
+  let isValid = true; 
 
-  // Validate Name
   if (name === "") {
     isValid = false;
     alert("Blank Name");
   } else if (!isNaN(name.charAt(0))) {
-    isValid = false;
+    event.preventDefault();
     alert("Name shouldn't start with a number.");
   }
 
-  // Validate Email
+
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(email)) {
-    isValid = false;
+    event.preventDefault();
     alert("Invalid email address.");
   }
 
-  // Validate Message
-  let message = document
-    .getElementById("exampleFormControlTextarea1")
-    .value.trim();
+
+  let message = document.getElementById("exampleFormControlTextarea1").value.trim();
   if (message === "") {
-    isValid = false;
+    
+    event.preventDefault();
     alert("Message cannot be empty.");
   }
 
-  // Prevent form submission if validation fails
-  if (!isValid) {
-    event.preventDefault(); // Stops the form from submitting
-  }
+
 });
