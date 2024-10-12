@@ -19,6 +19,7 @@ let progresshtml = setInterval(() => {
   }
 }, htmlspeed);
 
+
 // javasript progress circular bar 
 let javascriptProgress = document.querySelector(".javascript"),
   javascriptValue = document.querySelector(".javascript-progress");
@@ -40,12 +41,37 @@ let progressjs = setInterval(() => {
   }
 }, jsspeed);
 
+let BootstrapProgress = document.querySelector(".Bootstrap"),
+  BootstrapValue = document.querySelector(".Bootstrap-progress");
+
+let BootstrapStartValue = 0,
+  BootstrapEndValue = 80,
+  Bootstrapspeed = 30;
+
+let progressBarColor = "#ff5733";
+let backgroundColor = "#ededed"; 
+
+let progressBootstrap = setInterval(() => {
+  BootstrapStartValue++;
+
+  BootstrapValue.textContent = `${BootstrapStartValue}%`;
+
+  BootstrapProgress.style.background = `conic-gradient(${progressBarColor} ${
+    BootstrapStartValue * 3.6
+  }deg, ${backgroundColor} 0deg)`;
+
+  if (BootstrapStartValue == BootstrapEndValue) {
+    clearInterval(progressBootstrap);
+  }
+}, Bootstrapspeed);
+
+
 // php progress circular bar 
 let phpProgress = document.querySelector(".php"),
   phpValue = document.querySelector(".php-progress");
 
 let phpStartValue = 0,
-  phpEndValue = 60,
+  phpEndValue = 80,
   phpspeed = 30;
 
 let progressphp = setInterval(() => {
