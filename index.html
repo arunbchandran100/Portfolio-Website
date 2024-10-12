@@ -82,7 +82,13 @@
 
           </ul>
         </div>
-        <button class="c-btn ms-4 py-2 px-4 rounded-pill d-none d-md-block"><a class="nav-link" href="#contact">contact</a></button>
+        
+        <a class="nav-link" href="#contact">
+          <button class="c-btn ms-4 py-2 px-4 rounded-pill d-none d-md-block">
+            contact
+          </button>
+        </a>
+
       </div>
     </nav>
     <!-- navbar ends here -->
@@ -98,9 +104,13 @@
           <p class="text-muted">
             I'm A Web Developer.
           </p>
-          <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
-            <a class="nav-link" href="#contact">Hire Me</a>
-          </button>
+
+            <a class="nav-link" href="#contact">
+              <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
+                Hire Me
+              </button>
+            </a>
+
           <a href="" class="link ms-4 d-none">See My Work</a>
         </div>
         <div class="col-10 col-md-4 d-none d-md-block">
@@ -244,16 +254,16 @@
             <p class="text-muted">
               I am a skilled MERN Stack Web Developer with a passion for creating dynamic and responsive web applications. My expertise spans across MongoDB, Express.js, React.js, and Node.js, enabling me to build full-stack applications that are robust, scalable, and efficient. With a strong foundation in both front-end and back-end development, I thrive in environments that challenge me to solve complex problems and innovate.
             </p>
-
-            <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
-              <!-- here download attribute is used for adding download functionality to button  -->
-              <a
-                href="Resume Arun B Chandran.pdf"
+            
+              <a href="Resume Arun B Chandran.pdf"
                 download="Arun B Chandran- CV"
                 style="text-decoration: none;color: #fff;"
-                >Download CV</a
-              >
-            </button>
+                >
+                <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
+                Download CV
+                </button>
+              </a>
+            
           </div>
         </div>
       </div>
@@ -416,7 +426,9 @@
                 required
                 
               ></textarea>
-              <button id="submit-button" class="c-btn h-btn mt-3 py-3 px-5 rounded-pill" type="submit" value="Submit">Submit</button>
+              <button id="submit-button" 
+              class="c-btn h-btn mt-3 py-3 px-5 rounded-pill" type="submit" 
+              value="Submit">Submit</button>
               
               <div
       id="message"
